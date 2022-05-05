@@ -1,0 +1,35 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: Community Domain Server
+  r2dbc:
+    url: r2dbc:pool:mysql://~~~~~/user_manage
+    username: ~~~~~
+    password: ~~~~~
+    #initialization-mode: always
+    port: 3306
+
+eureka:
+  client:
+    #eureka ?? ?? ??
+    register-with-eureka: true
+    #???? ?? ??? ??
+    fetch-registry: true
+    #eureka ?? ?? ?? ??
+    service-url:
+      #eureka ?? ?????? ?? ??????? ??
+      defaultZone: http://localhost:8761/eureka
+
+logging:
+  level:
+    root: INFO
+    org.springframework.r2dbc: DEBUG
+
+msa:
+  client:
+    url:
+      gateway: http://localhost:8000
+
+
