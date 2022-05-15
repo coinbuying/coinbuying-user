@@ -3,24 +3,20 @@ server:
 
 spring:
   application:
-    name: Community Domain Server
+    name: User Domain Server
   r2dbc:
-    url: r2dbc:pool:mysql://~~~~~/user_manage
-    username: ~~~~~
-    password: ~~~~~
+    url: r2dbc:pool:mysql://coinbuying.c5sgvczuoq5f.us-west-1.rds.amazonaws.com/user_manage
+    username: admin
+    password: coin1234
     #initialization-mode: always
     port: 3306
 
 eureka:
   client:
-    #eureka ?? ?? ??
-    register-with-eureka: true
-    #???? ?? ??? ??
-    fetch-registry: true
-    #eureka ?? ?? ?? ??
     service-url:
-      #eureka ?? ?????? ?? ??????? ??
       defaultZone: http://localhost:8761/eureka
+    register-with-eureka: true
+    fetch-registry: true
 
 logging:
   level:
@@ -32,4 +28,7 @@ msa:
     url:
       gateway: http://localhost:8000
 
-
+jwt:
+  secret: Y29kZXN0YXRlcy1iaXRodW1iLW1zYS10ZWFtLW1lbWJlci1zcHJpbmctYm9vdC13ZWJmbHV4LWp3dC1zZWNyZXQ=
+  accessExpires:  7200000
+  refreshExpires:  172800000

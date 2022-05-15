@@ -7,6 +7,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public interface UserFactory {
-    User userBuilder(UserType userType, String name, String email, String password, LocalDateTime createDt, LocalDateTime updateDt);
+    User userBuilder(UserType userType, String name, String email, String password);
     List<User> setupListBuilder();
 }

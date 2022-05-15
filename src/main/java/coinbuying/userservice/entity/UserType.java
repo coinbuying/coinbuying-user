@@ -14,5 +14,4 @@ public enum UserType {
 
     private String name;
     private String description;
-
 }
