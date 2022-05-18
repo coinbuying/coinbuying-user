@@ -15,4 +15,8 @@ public class UserRegistrationRequest {
 
     private String password; // 회원 비밀번호
 
+    private String bithumbToken; // 빗썸 토큰
+
+    private String upbitToken; // 업비트 토큰
+
 }

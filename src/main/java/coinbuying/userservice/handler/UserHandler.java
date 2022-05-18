@@ -1,6 +1,6 @@
 package coinbuying.userservice.handler;
 
-import coinbuying.userservice.dto.UserInfoDto;
+import coinbuying.userservice.dto.UserInfoResponse;
 import coinbuying.userservice.dto.UserLoginResponse;
 import coinbuying.userservice.dto.UserRegistrationResponse;
 import coinbuying.userservice.service.UserService;
@@ -64,26 +64,11 @@ public class UserHandler {
      */
     public Mono<ServerResponse> findMemberInfo(ServerRequest request) {
 
-        Mono<UserInfoDto> response = userService.findMemberInfo(request)
+        Mono<UserInfoResponse> response = userService.findMemberInfo(request)
                 .subscribeOn(Schedulers.boundedElastic());
 
         return  ok()
                 .contentType(MediaType.APPLICATION_JSON)
-                .body(response, UserInfoDto.class);
-    }
-
-    /**
-     * 회원 정보 수정
-     * @param request : 수정할 회원 정보
-     * @return Mono<ServerResponse> : 수정된 회원 정보
-     */
-    public Mono<ServerResponse> modifyMemberInfo(ServerRequest request) {
-
-        Mono<UserInfoDto> response = userService.modifyMemberInfo(request)
-                .subscribeOn(Schedulers.boundedElastic());
-
-        return  ok()
-                .contentType(MediaType.APPLICATION_JSON)
-                .body(response, UserInfoDto.class);
+                .body(response, UserInfoResponse.class);
     }
 }

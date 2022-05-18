@@ -47,7 +47,9 @@ public class UserServiceImpl implements UserService {
                                                             NORMAL,
                                                             request.getName(),
                                                             request.getEmail(),
-                                                            request.getPassword()
+                                                            request.getPassword(),
+                                                            request.getBithumbToken(),
+                                                            request.getUpbitToken()
                                                     )
                                             )
                                             .switchIfEmpty(Mono.error(new RegistrationFailException(ExceptionMessage.SaveFailMember.getMessage())))
@@ -94,23 +96,11 @@ public class UserServiceImpl implements UserService {
      * 내 정보 조회
      */
     @Override
-    public Mono<UserInfoDto> findMemberInfo(ServerRequest request) {
+    public Mono<UserInfoResponse> findMemberInfo(ServerRequest request) {
 
         int userId = Integer.parseInt(request.pathVariable("userId"));
 
         return userRepository.findById(userId)
-                .map(UserInfoDto::new);
-    }
-
-    /**
-     * 내 정보 수정
-     */
-    @Override
-    public Mono<UserInfoDto> modifyMemberInfo(ServerRequest request) {
-
-        int userId = Integer.parseInt(request.pathVariable("userId"));
-
-        return userRepository.findById(userId)
-                .map(UserInfoDto::new);
+                .map(UserInfoResponse::new);
     }
 }

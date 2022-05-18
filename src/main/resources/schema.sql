@@ -6,6 +6,8 @@ CREATE TABLE IF NOT EXISTS users ( -- board 테이블이 없을 경우 테이블
     name VARCHAR(50) NOT NULL COMMENT '이름',
     email VARCHAR(50) NOT NULL COMMENT 'email',
     password VARCHAR(100) NOT NULL COMMENT 'password',
+    bithumb_token VARCHAR(500) NOT NULL COMMENT 'bithumb_token',
+    upbit_token VARCHAR(500) NOT NULL COMMENT 'upbit_token',
     create_dt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '생성일',
     update_dt DATETIME ON UPDATE CURRENT_TIMESTAMP COMMENT '수정일'
 );

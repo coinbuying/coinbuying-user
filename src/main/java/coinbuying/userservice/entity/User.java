@@ -31,6 +31,12 @@ public class User {
     @Column(value="password")
     private String password;
 
+    @Column(value="bithumb_token")
+    private String bithumbToken;
+
+    @Column(value="upbit_token")
+    private String upbitToken;
+
     @Column(value="create_dt")
     private LocalDateTime createDt;
 

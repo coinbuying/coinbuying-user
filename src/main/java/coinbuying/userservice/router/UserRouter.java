@@ -18,7 +18,6 @@ public class UserRouter {
                 .route(POST("/user/signup"), userHandler::memberRegistration)      // 회원가입
                 .andRoute(POST("/user/login"), userHandler::login)       // 로그인
                 .andRoute(GET("/user/{userId}"), userHandler::findMemberInfo)        // 유저정보조회
-                .andRoute(PUT("/user/{userId}"), userHandler::modifyMemberInfo)        // 유저정보 수정
                 .andRoute(GET("/user"), userHandler::health)
                 ;
     }

@@ -8,15 +8,19 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class UserInfoDto {
+public class UserInfoResponse {
     private String name;
     private String email;
     private UserType userType;
+    private String bithumbToken;
+    private String upbitToken;
 
     @Builder
-    public UserInfoDto(User user) {
+    public UserInfoResponse(User user) {
         this.name = user.getName();
         this.email = user.getEmail();
         this.userType = user.getUserType();
+        this.bithumbToken = user.getBithumbToken();
+        this.upbitToken = user.getUpbitToken();
     }
 }
